@@ -1,6 +1,6 @@
 <?php
 
-namespace JoshWhatK\Eloquent\Extensions;
+namespace JoshWhatK\Eloquent\Extensions\Exceptions;
 
 use Exception;
 
