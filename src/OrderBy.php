@@ -50,7 +50,8 @@ class OrderBy
                 {
                     $relation = $this->map_order_by($column['relation']);
                     $this->queryBuilder = $this->joinRelation($column);
-                    $this->queryBuilder = $this->queryBuilder->orderBy($relation['as'].'.'.$column['column'], $item['direction']);
+                    $this->queryBuilder = $this->queryBuilder
+                        ->orderBy($relation['as'].'.'.$column['column'], $item['direction']);
                     return;
                 }
             }
@@ -89,7 +90,10 @@ class OrderBy
                 $this->queryBuilder = $this->queryBuilder
                 ->join(
                     $mapped_relation['table'].' as '.$mapped_relation['as'],
-                    $mapped_relation['as'].'.id', '=', $mapped_relation['parent_table'].'.'.$mapped_relation['id']);
+                    $mapped_relation['as'].'.id',
+                    '=',
+                    $mapped_relation['parent_table'].'.'.$mapped_relation['id']
+                );
             });
             $first_relation = $this->map_order_by($relations->first());
             $this->queryBuilder = $this->queryBuilder->select($first_relation['parent_table'].'.*');
